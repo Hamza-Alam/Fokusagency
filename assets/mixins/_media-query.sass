@@ -1,0 +1,22 @@
+@mixin screen-size($size)
+    @if $size == vvxxl
+        @media only screen and (max-width: 1800px) 
+            @content
+    @else if $size == vxxl
+        @media only screen and (max-width: 1680px) 
+            @content
+    @if $size == xxl
+        @media only screen and (max-width: 1400px) 
+            @content
+    @else if $size == xl
+        @media only screen and (max-width: 1200px)
+            @content
+    @else if $size == lg
+        @media only screen and (max-width: 992px)
+            @content
+    @else if $size == md
+        @media only screen and (max-width: 768px)
+            @content
+    @else if $size == sm
+        @media only screen and (max-width: 576px)
+            @content

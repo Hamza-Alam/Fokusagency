@@ -1,0 +1,232 @@
+@import '../mixins/_triangle-shape.sass'
+@import '../mixins/_variable.sass'
+@import '../mixins/_media-query.sass'
+
+body
+    font-family: Bitter, serif
+
+main
+    .grid-container
+            display: grid
+            grid-template-columns: 480px auto 480px
+
+            @include screen-size(vvxxl)
+                grid-template-columns: 420px auto 420px
+            
+            @include screen-size(vxxl)
+                grid-template-columns: 360px auto 360px
+
+            @include screen-size(xxl)
+                grid-template-columns: 280px auto 280px
+            
+            @include screen-size(xl)
+                grid-template-columns: 240px auto 240px
+
+            @include screen-size(lg)
+                grid-template-columns: 180px auto 180px
+            
+            @include screen-size(md)
+                grid-template-columns: auto
+
+            .grid-item
+                .content-with-shape
+                    .content
+                        position: absolute
+                        width: 480px
+                        left: 80px
+                        top: 80px
+                                
+                        @include screen-size(vvxxl)
+                            top: 70px
+                            left: 10px
+
+                        @include screen-size(vxxl)
+                            top: 50px
+                            left: 20px
+
+                        @include screen-size(xxl)
+                            width: 360px
+                            top: 60px
+                            left: 40px
+                        
+                        @include screen-size(xl)
+                            top: 10px
+                            left: 20px
+
+                        @include screen-size(lg)
+                            top: 10px
+                            left: 20px
+                            width: 240px
+
+                        @include screen-size(md)
+                            position: initial
+                            width: 100%
+                            padding: 20px
+
+                        h4,p
+                            color: $black
+                h4
+                    font-weight: 600
+                    font-size: 2.5rem
+                    margin-bottom: 1.875rem
+
+                    @include screen-size(xxl)
+                        font-size: 1.875rem
+                        margin-bottom: 1rem
+
+                    @include screen-size(lg)
+                        font-size: 1.2rem
+                p
+                    font-size: 1.125rem
+                    font-weight: 400
+                    margin-bottom: 1.875rem
+
+                    @include screen-size(xxl)
+                        font-size: 0.875rem
+                    
+                    @include screen-size(lg)
+                        font-size: 0.5rem
+
+                &.with-dark-bg
+                    background-color: $dark_red
+                .text-div
+                    background-color: $blue
+                    padding: 80px
+
+                h4,p
+                    color: #fff
+                .content-with-shape
+                    @include screen-size(sm)
+                        display: block !important
+                &:nth-child(3)
+                    @include screen-size(md)
+                        display: none
+
+                .py-5
+                    @include screen-size(xl)
+                        padding: 0.5rem 0rem !important
+
+                &.img-with-shape
+                    .shape-div
+                        .shape
+                            top: 0
+                            right: 0
+                        .with-dark-border
+                            border-color: $dark_red
+                img,.centerImg
+                    width: 100%
+                    height: 100%
+                .btn
+                    border: none
+                    padding: .5rem 2rem
+                    text-transform: uppercase
+                    display: inline-block
+                    transition: .4s linear
+                    border-radius: 0
+                    position: relative
+                    font-family: 'Oswald', sans-serif
+                    font-weight: 600
+
+                    &::after
+                        content: ''
+                        position: absolute
+                        left: 0
+                        top: 0
+                        background-color: #ED031A
+                        clip-path: polygon(0% 0%, 100% 50%, 0 100%)
+                        width: 25px
+                        height: 100%
+                    &.btn-theme
+                        background-color:  darken($theme_color, 5%)
+                        color: $white_color
+                        &:hover
+                            background-color: darken($theme_color, 5%)
+                            color: $white_color
+
+                    &.btn-white
+                        background-color: $white_color
+                        color: $black_color
+                        &::after
+                            background-color: $light_gray-color
+
+
+
+.rightTriangleShape
+    @include css-triangle(right, $theme_color, 320px, 160px)
+
+    @include screen-size(vvxxl)    
+        @include border-width(right, 280px, 140px)
+
+    @include screen-size(vxxl)    
+        @include border-width(right, 240px, 120px)
+    
+    @include screen-size(xxl)    
+        @include border-width(right, 180px, 90px)
+    
+    @include screen-size(xl)    
+        @include border-width(right, 160px, 80px) 
+
+    @include screen-size(lg)    
+        @include border-width(right, 120px, 60px) 
+    
+
+.bottomRightTriangle
+    @include css-triangle(bottom-right, $theme_color, 480px, 480px)
+
+    @include screen-size(sm)
+        margin-left: auto
+    
+.topLeftTriangleWithMehroon
+    @include css-triangle(top-left, $dark_red, 480px, 480px)
+
+.rightTriangleWithRed
+    @include css-triangle(right, $theme_color, 480px, 240px)
+
+    @include screen-size(vvxxl)    
+        @include border-width(right, 420px, 210px)
+
+    @include screen-size(vxxl)    
+        @include border-width(right, 400px, 180px) 
+    
+    @include screen-size(xxl)    
+        @include border-width(right, 280px, 140px)
+
+    @include screen-size(xl)    
+        @include border-width(right, 240px, 120px) 
+    
+    @include screen-size(lg)    
+        @include border-width(right, 180px, 90px)
+
+.topLeftTriangleWithRed
+    @include css-triangle(top-left, $theme_color, 480px, 480px)
+
+    @include screen-size(vvxxl)    
+        @include border-width(top-left, 420px, 420px)
+    
+    @include screen-size(vxxl)    
+        @include border-width(top-left, 360px, 360px) 
+    
+    @include screen-size(xxl)    
+        @include border-width(top-left, 280px, 280px)
+
+    @include screen-size(xl)    
+        @include border-width(top-left, 240px, 240px) 
+    
+    @include screen-size(lg)    
+        @include border-width(top-left, 180px, 180px)
+
+.commonTraingleShape
+    @include screen-size(vvxxl)    
+        @include border-width(bottom-right, 420px, 420px) 
+
+    @include screen-size(vxxl)    
+        @include border-width(bottom-right, 360px, 360px) 
+    
+    @include screen-size(xxl)    
+        @include border-width(bottom-right, 280px, 280px)
+
+    @include screen-size(xl)    
+        @include border-width(bottom-right, 240px, 240px) 
+    
+    @include screen-size(lg)    
+        @include border-width(bottom-right, 180px, 180px)
